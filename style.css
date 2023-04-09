@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dark:root {
+  font-size: 62.5%;
+
+  --bg-color: #121214;
+  --bg-button: #C4C4CC;
+  --bg-card: #29292E;
+  --bg-cardPressed: #0A3442;
+  --bg-volume: #FFFFFF;
+  --bg-icon: #C4C4CC;
+
+  --fc-color: #FFFFFF;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --bg-color: #FFFFFF;
+  --bg-button: #323238;
+  --bg-card: #E1E1E6;
+  --bg-cardPressed: #02799D;
+  --bg-volume: #FFFFFF;
+  --bg-icon: #323238;
+
+  --fc-color: #323238;
+}
+
+body{
+  background-color: var(--bg-color);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  color: var(--fc-color);
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#toggleTheme img{
+  position: relative;
+  right: -26rem;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.content {
+  min-width: 32rem;
+}
+
+main {
+  min-width: 30rem;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#timer{
+  font-size: 12rem;
+  font-weight: 500;
+  line-height: 14.8rem;
+
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 1rem;
+}
+
+#controls {
+  width: 31rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 .5rem 0 .5rem;
+  margin-bottom: 3rem;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+button svg path {
+  fill: var(--bg-button);
+}
+
+.cards-wrapper {
+  width: 32rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+}
+
+.cards-wrapper .card {
+  background: var(--bg-card);
+  width: 13.8rem;
+  height: 15.2rem;
+  border-radius: 2.4rem;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cards-wrapper 
+.card input {
+  position: absolute;
+  appearance: none;
+  width: 13.8rem;
+  height: 15.2rem;
+  border-radius: 2.4rem;
+  cursor: pointer;
+}
+
+.cards-wrapper 
+.card input:checked {
+  background: var(--bg-cardPressed);
+  width: 13.8rem;
+  height: 15.2rem;
+  border-radius: 2.4rem;
+
+  transition: background .3s;
+}
+
+.cards-wrapper 
+.card label {
+  position: absolute;
+  cursor: pointer;
+}
+
+.cards-wrapper 
+.card label svg path{
+  fill: var(--bg-icon);
+}
+
+.cards-wrapper 
+.card input:checked + 
+label svg path {
+  fill: #FFFFFF;
+  transition: fill .3s;
+}
+
+.cards-wrapper 
+.card .range {
+  width: 9rem;
+  height: 0.5rem;
+  background: var(--bg-volume);
+
+  border-radius: .5rem;
+
+  position: relative;
+  top: 6rem; 
+  opacity: 0;
+}
+
+.cards-wrapper 
+.card .range::-webkit-slider-thumb {
+  appearance: none;
+  border-radius: 50%;
+  background: var(--bg-volume);
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.cards-wrapper 
+.card .rangeValue {
+  position: relative;
+  font-size: 1.3rem;
+  color: #FFFFFF;
+  bottom: -3.7rem; 
+  right: -0.1em;
+
+  opacity: 0;
+}
+
+.cards-wrapper 
+.card:hover .range, 
+.cards-wrapper 
+.card:hover .rangeValue {
+  opacity: 1;
+}
+
+
+:is(#rain:checked, #forest:checked, #coffeeshop:checked, #fireplace:checked) ~ .range {
+  visibility: visible;
+}
+
+:is(#rain:checked, #forest:checked, #coffeeshop:checked, #fireplace:checked) ~ .rangeValue {
+  visibility: visible;
+}
+
+.range, .rangeValue {
+  visibility: hidden;
+}
+
+@media(min-width: 768px) {
+  .content {
+    width: 76.8rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  #toggleTheme img {
+    position: relative;
+    top: -26.6rem;
+    right: -70.6rem;
+  }
+}
+
+
